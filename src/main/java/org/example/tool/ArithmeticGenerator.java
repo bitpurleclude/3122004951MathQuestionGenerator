@@ -54,8 +54,11 @@ public class ArithmeticGenerator {
         }
     }
     private static String generateProperFraction(Random rand, int range) {
-        int numerator = rand.nextInt(range - 1) + 1; // 分子
-        int denominator = rand.nextInt(range - 1) + 2; // 分母，确保大于分子
+        int numerator = rand.nextInt(range - 1) + 1; // 分子，确保 > 0
+        int denominator;
+        do {
+            denominator = rand.nextInt(range - 1) + 2; // 分母，确保分母大于分子
+        } while (denominator <= numerator);
         return numerator + "/" + denominator;
     }
 
@@ -66,8 +69,15 @@ public class ArithmeticGenerator {
     }
     private static String generateMixedFraction(Random rand, int range) {
         int whole = rand.nextInt(range);  // 整数部分
-        int numerator = rand.nextInt(range - 1) + 1; // 分子
-        int denominator = rand.nextInt(range - 1) + 2; // 分母，确保大于分子
+        int numerator;
+        int denominator;
+
+        // 确保分数部分是真分数，即分子 < 分母
+        do {
+            numerator = rand.nextInt(range - 1) + 1; // 分子，确保 > 0
+            denominator = rand.nextInt(range - 1) + 2; // 分母，确保分母大于分子
+        } while (denominator <= numerator);
+
         return whole + "'" + numerator + "/" + denominator;
     }
     private static boolean isValidExpression(String expression) {

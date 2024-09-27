@@ -10,7 +10,7 @@ public class Test1 {
     @Test
     public void test1() {
         // 示例表达式
-        String expression = "(1/2 + 2'3/4) * (3+1)";
+        String expression = "( ( 8'1/9 + 7'4/5 ) / ( 1'6/10 + 4/6 ) )";
         String answer = calculateAnswer(expression);
         System.out.println("表达式: " + expression);
         System.out.println("答案: " + answer);
@@ -25,7 +25,10 @@ public class Test1 {
             Random rand = new Random();
             int range = 10; // 范围
             String expression = generateExpression(rand, range,2);
+            //String answer = calculateAnswer(expression);
             System.out.println("生成的表达式: " + expression);
+            String answer = calculateAnswer(expression);
+            System.out.println("答案: " + answer);
         }
     }
 }
