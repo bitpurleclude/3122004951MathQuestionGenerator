@@ -56,7 +56,7 @@ public class Main {
 
     // 打印帮助信息
     private static void printUsage() {
-        System.out.println("Usage: MyApp -n <num> -r <range>");
-        System.out.println("       MyApp -e <exercisefile> -a <answerfile>");
+        System.out.println("Usage: java -jar main.jar -n <num> -r <range>");
+        System.out.println("       java -jar main.jar -e <exercisefile> -a <answerfile>");
     }
 }
